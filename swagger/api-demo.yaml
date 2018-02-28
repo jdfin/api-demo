@@ -1,0 +1,146 @@
+swagger: '2.0'
+info:
+  title: API Test
+  version: 1.0.0
+host: 'localhost:8080'
+basePath: '/api'
+schemes:
+  - http
+paths:
+  '/':
+    get:
+      description: Get list of top level groups.
+      operationId: get_tops
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+  '/config':
+    get:
+      description: Get list of config group names.
+      operationId: get_config_groups
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+  '/config/{groupName}':
+    get:
+      description: Get list of section names in a config group.
+      operationId: get_config_group_by_name
+      produces:
+        - application/json
+      parameters:
+        - name: groupName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '404':
+          description: Group not found.
+  '/config/{groupName}/{sectionName}':
+    get:
+      description: 'Get list of name:value settings in a config section.'
+      operationId: get_config_section_by_name
+      produces:
+        - application/json
+      parameters:
+        - name: groupName
+          in: path
+          required: true
+          type: string
+        - name: sectionName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                value:
+                  type: string
+        '404':
+          description: Group or section not found.
+  '/status':
+    get:
+      description: Get list of status group names.
+      operationId: get_status_groups
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+  '/status/{groupName}':
+    get:
+      description: Get list of section names in a status group.
+      operationId: get_status_group_by_name
+      produces:
+        - application/json
+      parameters:
+        - name: groupName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '404':
+          description: Group not found.
+  '/status/{groupName}/{sectionName}':
+    get:
+      description: 'Get list of name:value settings in a status section.'
+      operationId: get_status_section_by_name
+      produces:
+        - application/json
+      parameters:
+        - name: groupName
+          in: path
+          required: true
+          type: string
+        - name: sectionName
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                value:
+                  type: string
+        '404':
+          description: Group or section not found.

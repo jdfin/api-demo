@@ -1,0 +1,25 @@
+Go to https://editor.swagger.io
+File -> Import File, navigate to api-demo.yaml
+Generate Server -> python flask
+If it doesn't work, tell chrome it can load unsafe scripts (right end of address bar)
+Save generate zipfile, unzip it
+Source update_server.sh (copies files into python-flask-server/swagger/server/controllers/)
+
+First run:
+~/api-demo/swagger$ virtualenv --clear -p python3 venv
+~/api-demo/swagger$ . venv/bin/activate
+(venv) ~/api-demo/swagger/python-flask-server$ pip3 install -r requirements.txt 
+(venv) ~/api-demo/swagger$ cd python-flask-server/
+(venv) ~/api-demo/swagger$ python3 -m swagger_server
+:
+(venv) ~/api-demo/swagger$ deactivate
+
+Subsequent runs:
+~/api-demo/swagger$ . venv/bin/activate
+(venv) ~/api-demo/swagger$ cd python-flask-server/
+(venv) ~/api-demo/swagger$ python3 -m swagger_server
+:
+(venv) ~/api-demo/swagger$ deactivate
+
+The api client in ../requests-client works against this server. I have
+generated and tried the client (and it works), but that's not included here.
