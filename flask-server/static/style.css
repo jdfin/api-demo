@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+}
+
+button {
+    border: 0;
+    box-shadow: 0;
+}
+
+.nav-inactive {
+    background-color: lightgray;
+    padding: 7px 10px;
+}
+
+.nav-active {
+    background-color: pink;
+    padding: 7px 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

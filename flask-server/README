@@ -1,0 +1,28 @@
+flask as server for api and browser clients
+
+index.html detects client and responds as appropriate:
+  * browser gets index.html
+  * non-browser is redirected to api/ (and will get json)
+
+'templates' should be a link to either:
+  * templates-webapp and the browser will get a single-page webapp
+  * templates-html and the browser will get a tree of html files
+The api should work the same either way (it does not use templates).
+
+First run:
+  $ virtualenv --clear -p python2 venv
+  $ . venv/bin/activate
+  $ pip install flask
+  $ export FLASK_APP=app.py
+  $ flask run
+    :
+  $ deactivate
+Subsequent runs:
+  $ . venv/bin/activate
+  $ export FLASK_APP=app.py
+  $ flask run
+    :
+  $ deactivate
+When the server is running, you should be able to point a browser at
+localhost:5000 and see it run, or run one of the api clients (e.g.
+../requests-client).

@@ -1,0 +1,15 @@
+api client using python-requests
+
+Change to the this directory, then:
+First run:
+  $ virtualenv --clear -p python2 venv
+  $ . venv/bin/activate
+  $ pip install requests
+  $ ./test_api.py
+  $ deactivate
+Subsequent runs:
+  $ . venv/bin/activate
+  $ ./test_api.py
+  $ deactivate
+Running test_api.py should show a dump of the api tree implemented by the
+server.
